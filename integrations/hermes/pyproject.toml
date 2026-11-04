@@ -33,9 +33,6 @@ test = ["pytest>=7.0", "build"]
 dev = ["mnemosyne-hermes[test]", "build", "twine"]
 all = ["mnemosyne-memory[all]>=4.0.0"]
 
-[project.entry-points."hermes_agent.plugins"]
-mnemosyne = "mnemosyne_hermes:register"
-
 [project.entry-points."hermes_agent.memory_providers"]
 mnemosyne = "mnemosyne_hermes"
 

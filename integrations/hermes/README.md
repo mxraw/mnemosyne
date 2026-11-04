@@ -406,12 +406,15 @@ always-injected memory tier. Existing user-edited copies are skipped by default;
 
 ### How it works
 
-When you install via pipx, the package registers two entry points:
+When you install via pipx, the package registers one entry point:
 
 - `hermes_agent.memory_providers` - discovered by Hermes' `discover_memory_providers()`
-  so `hermes memory status` sees it as an installed plugin
-- `hermes_agent.plugins` - discovered by Hermes' `PluginManager` for tool and
-  CLI registration
+  so `hermes memory status` sees it as an installed plugin, and the provider's
+  `register()` exposes tools and the CLI command when the memory subsystem loads it
+
+It does not register `hermes_agent.plugins`. That group is scanned while Hermes
+resolves model providers, so an entry there imports this package in every
+`hermes` process, including `--version`. The memory provider does not need it.
 
 Hermes checks pipx-installed packages alongside directory-based plugins. No
 extra setup steps needed.

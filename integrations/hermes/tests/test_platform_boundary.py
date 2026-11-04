@@ -18,7 +18,6 @@ ENTRIES = {
     "catalog": CATALOG / "__init__.py",
     "catalog_cli": CATALOG / "cli.py",
     "package": SRC / "mnemosyne_hermes/__init__.py",
-    "plugin_entry": None,
     "provider_entry": None,
     "package_cli": SRC / "mnemosyne_hermes/cli.py",
     "installer": SRC / "mnemosyne_hermes/install.py",
